@@ -1,0 +1,11 @@
+﻿@model IEnumerable<MyWebSite.Models.Dto.UserDTO>
+
+<table>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.UserName</td>
+            <td>@item.UserGroupName</td>
+        </tr>
+     }
+</table>

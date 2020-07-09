@@ -1,0 +1,30 @@
+﻿@model List<MVCDemo.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           ten
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.name
+        </td>
+        <td>
+            
+        </td>
+        
+    </tr>
+}
+
+</table>

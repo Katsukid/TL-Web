@@ -1,0 +1,59 @@
+﻿@model BookMVC.Entities.Book
+@{
+     var isNew =(bool)ViewBag.isNew;
+}
+
+<div class="col-lg-3 col-md-6 mt-5">
+     <div class="product same-height">
+          <div class="box same-height">
+               <!-- Sale -->
+               @if (Model.Price.Value != Model.PromotionPrice.Value)
+               {
+                    <div class="ribbon sale">
+                         <div class="theribbon">SALE</div>
+                         <div class="ribbon-background"></div>
+                    </div>
+               }
+               <!-- New -->
+               @if (isNew)
+               {
+                    <div class="ribbon new">
+                         <div class="theribbon">NEW</div>
+                         <div class="ribbon-background"></div>
+                    </div>
+               }
+               <a href="@Url.Action("Detail", "Book", new { id = Model.ID})"><img src="@Model.Image" alt="Image @Model.Name 1" class="img-fluid border rounded" style="width:213px !important;height:300px"></a>
+               <hr class="m-1"/>
+               <div class="text m-1">
+                    <div style="height:100px">
+                         <h3 style="text-align:center"><a>@Model.Name</a></h3>
+                    </div>
+                    <hr />
+                    <table>
+                         @if (Model.Price.Value != Model.PromotionPrice.Value)
+                         {
+                              <tr>
+                                   <td class="old-price" style="width:150px"> VND @(((Decimal)Model.PromotionPrice).ToString("N0"))</td>
+                                   <td><a class="btn bg-transparent btn-add-cart" href="@Url.Action("AddCartItem","Cart",new { @ItemID = Model.ID})" data-itemid="@Model.ID"><i class="fa fa-shopping-cart fa-lg text-info"></i></a></td>
+                              </tr>
+                              <tr>
+                                   <td class="sale-price" style="width:150px"> VND @(((Decimal)Model.Price).ToString("N0"))</td>
+                                   <td><a class="btn bg-transparent"><i class="fa fa-heart fa-lg" style="color:red"></i></a></td>
+                              </tr>
+                              <tr class="text-secondary" style="font-size:12px">
+                                   <td class="text-secondary" style="width:150px">Lượt xem: @((Decimal)Model.ViewCount)</td>
+                                   <td >Kho: @((Decimal)Model.Inventory)</td>
+                              </tr>
+                         }
+                         else
+                         {
+                              <tr>
+                                   <td class="price">@(((Decimal)Model.Price).ToString("N0"))</td>
+                              </tr>
+                         }
+                    </table>
+               </div>
+          </div>
+     </div>
+     <!-- /.product-->
+</div>

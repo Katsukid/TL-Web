@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using(Html.BeginForm("LoginAction","Login"))
+{
+    <div>Name: <input type="text" name="name" /></div>
+    <div>Password: <input type="password" name="password" /></div>
+    <input type="submit" value="Login">
+}
+
+<h1>Thong tin Account:</h1>
+
+<h3>Ten quan tri : @TempData["quantri"]</h3>
+<h3>Tuoi : @TempData["tuoi"]</h3>
+<h3>Hom nay la : @TempData["ngayhientai"]</h3>
+

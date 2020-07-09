@@ -1,0 +1,10 @@
+﻿@model IEnumerable<MVCDemo.Models.Student>
+<h1>Xin chao!</h1>
+
+<table>
+    <tr><td>Name</td><td>Age</td></tr>
+    @foreach (var item in Model)
+    {
+        <tr> <td>@item.Name</td><td>@item.Age</td></tr>
+    }
+</table>

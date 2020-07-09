@@ -1,0 +1,22 @@
+﻿@{ 
+    string a = "xin chao";
+    var b = 2;
+    var color = "blue";
+    List<string> ls = new List<string>();
+    ls.Add("Tung");
+    ls.Add("Cuc");
+    ls.Add("Truc");
+    ls.Add("Mai");
+    for (int i = 0; i < ls.Count; i++)
+    {
+        if (i % 2 == 0)
+        {
+            color = "red";
+        }
+        else {
+            color = "blue";
+        }
+        <h1 style="color:@color">@ls.ElementAt(i)</h1>
+        } 
+    }
+<font color="@color">@a</font>

@@ -1,0 +1,27 @@
+﻿@model BookMVC.Entities.Admin
+
+@{
+     ViewBag.Title = "Index";
+     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+     @Html.AntiForgeryToken()
+<div>
+     @Html.LabelFor(x => x.UserName)
+     @Html.TextBoxFor(x => x.UserName)
+</div>
+<div>
+     @Html.LabelFor(x => x.PassWord)
+     @Html.TextBoxFor(x => x.PassWord)
+</div>
+<div>
+     @Html.LabelFor(x => x.RememberMe)
+     @Html.CheckBoxFor(x => x.RememberMe)
+</div>
+<div>
+     <button type="submit" class="btn btn-primary">Login</button>
+</div>
+}
+

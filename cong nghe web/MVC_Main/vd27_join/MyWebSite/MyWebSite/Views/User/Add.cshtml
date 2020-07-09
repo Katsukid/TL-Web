@@ -1,0 +1,14 @@
+﻿@using MyWebSite.Models.Entities
+@model IEnumerable<UserGroup>
+
+<form action="AddAction" method="post">
+    Ten <input type="text" name="UserName"/>
+    Group <select name="UserGroupID"> 
+    @foreach (var item in Model)
+    {
+        <option value="@item.ID">@item.Name</option>
+    }
+                
+     </select>
+    <input type="submit" value="Them moi" />
+</form>

@@ -1,0 +1,53 @@
+﻿@model MVCDemo.Models.MyGroup
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Tên
+        </th>
+        <th>
+            Tuổi
+        </th>  
+    </tr>
+
+    @foreach(var item in Model.LsTeacher)
+    { 
+        <tr>
+            <td>@Html.DisplayFor(x=>item.ID)</td>
+            <td>@Html.DisplayFor(x => item.Name)</td>
+            <td>@Html.DisplayFor(z => item.Age)</td>
+        </tr>      
+    }
+
+</table>
+
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Tên
+        </th>
+        <th>
+            Tuổi
+        </th>
+    </tr>
+
+    @foreach (var item in Model.LsStudent)
+    {
+        <tr>
+            <td>@Html.DisplayFor(x => item.ID)</td>
+            <td>@Html.DisplayFor(x => item.Name)</td>
+            <td>@Html.DisplayFor(z => item.Age)</td>
+        </tr>
+    }
+
+</table>

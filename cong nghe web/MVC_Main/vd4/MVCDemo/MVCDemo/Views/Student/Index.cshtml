@@ -1,0 +1,54 @@
+﻿@using MVCDemo.Models
+@{ 
+    var a=7;
+    var b = 2;
+    string hello = "Xin chao!";
+}
+@functions{
+    int sum(int x, int y)
+    {
+        return x + y;
+    }
+
+    public class User
+    {
+        public string Username { get; set; }
+        public int Age { get; set; }
+    }
+
+    List<User> GetUser(int count)
+    {
+        List<User> list = new List<User>();
+        for (int i = 0; i < count; i++)
+        {
+            User user = new User();
+            user.Username = "name "+i;
+            user.Age = i;
+            list.Add(user);
+        }
+        return list;
+    }
+
+}
+<table>
+@foreach( var item in GetUser(10))
+{
+    <tr>
+        <td>@item.Username</td>
+        <td>@item.Age</td>
+    </tr>
+}
+</table>
+
+        <h2>@hello</h2>
+        <h2>So A la: <font color="red">@a</font></h2>
+        <h2>So B la: <font color="red">@b</font></h2>
+        <h2>Tong la: <font color="green">@sum(a,b)</font></h2>
+        @if (a > b)
+        {
+            <h2> So @a lon hon so @b</h2>
+        }
+        else
+        {
+            <h2> So @b lon hon  @a</h2>
+        }

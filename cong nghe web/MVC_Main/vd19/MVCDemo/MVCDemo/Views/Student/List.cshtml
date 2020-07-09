@@ -1,0 +1,83 @@
+﻿@using MVCDemo.Models;
+
+
+@{
+    ViewBag.Title = "List";
+}
+
+
+@{
+    var hello = "Xin chao";
+    int counter = 2;
+    var day = DateTime.Today;
+
+}
+
+@for (var i = 0; i < 10; i++)
+{
+    <p>Dòng thứ @i</p>
+}
+
+
+@{
+    var c = 0;
+    while (c < 5)
+    {
+        c += 1; <p>dong @c</p>
+    }
+}
+
+
+
+@{
+    string[] mylist = { "tav", "tavistu", "antv", "tva" };
+    int n = Array.IndexOf(mylist, "Kai") + 1;
+    int len = mylist.Length;
+    string x = mylist[3]; }
+<h3>Student</h3>
+@foreach (var person in mylist)
+{ <p>@person</p> }
+
+
+
+
+
+@{
+    var age = 20;
+} 
+@if (age >= 50)
+{ 
+    <p>old</p> 
+}
+else if (age > 10 && age < 30)
+{ 
+    <p>young</p>
+}
+else
+{
+    <p>kid</p> 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h2>List</h2>
+
+
+@ViewBag.Mes

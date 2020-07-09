@@ -1,0 +1,9 @@
+﻿@using MVCDemo.Models
+@{ 
+    User user = (User)TempData["abc"];
+}
+<h1>Ten cua nguoi dung: @user.username</h1>
+<h1>Mk cua nguoi dung: <font color="red">@user.password</font></h1>
+<h1>CMND: <font color="red">@user.cmnd.diachi</font></h1>
+<h1>blx: <font color="red">@user.blx.so</font></h1>
+<h1>blx: <font color="red">@TempData["keke"]</font></h1>

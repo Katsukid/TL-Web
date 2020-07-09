@@ -1,0 +1,14 @@
+﻿@model List<string>
+
+
+@for (int i = 0; i < Model.Count; i++)
+{
+    string cl = "odd";
+    if (i % 2 == 0)
+    { cl = "even"; }
+
+    string el = Model.ElementAt(i);
+<li class="@cl"><a href="#">@el</a></li>
+
+}
+

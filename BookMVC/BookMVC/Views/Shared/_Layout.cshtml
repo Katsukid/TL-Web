@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+      @RenderPage("~/Views/Shared/Head.cshtml")
+<body>
+     <!-- navbar-->
+     <header class="header mb-5">
+          <!--
+     *** TOPBAR ***
+     _________________________________________________________
+     -->
+          <div id="top">
+               <div class="container">
+                    <div class="row">
+                         <div class="col-lg-6 offer mb-3 mb-lg-0" id="hello">Welcome @Session["UserName"]</div>
+                         <div class="col-lg-6 text-center text-lg-right">
+                              <ul class="menu list-inline mb-0">
+                                   @if (Session["UserName"] == null)
+                                   {
+                                        <li class="list-inline-item" id="login"><a href="#" data-modal="login-modal" class="show-modal">Login</a></li>
+                                        <li class="list-inline-item" id="logout" style="display:none">@Html.ActionLink("Logout", "Logout", "User", null, null)</li>
+                                   }
+                                   else
+                                   {
+                                        <li class="list-inline-item" id="logout">@Html.ActionLink("Logout", "Logout", "User", null, null)</li>
+                                   }
+                                   <li class="list-inline-item">@Html.ActionLink("Register", "Register", "User", null, null)</li>
+                                   <li class="list-inline-item">@Html.ActionLink("Contact", "Contact", "Home", null, null)</li>
+                                   <li class="list-inline-item">@Html.ActionLink("Recently viewed", "Recently-viewed", "Home", null, null)</li>
+                              </ul>
+                         </div>
+                    </div>
+               </div>
+               @{Html.RenderAction("LoginModal", "User");}
+               <!-- *** TOP BAR END ***-->
+
+
+          </div>
+          @*@Html.Raw(@Ajax.ActionLink("[replacetext]", "Index", "Home", new AjaxOptions { UpdateTargetId = "dvTest" }).ToHtmlString().Replace("[replacetext]", "<i class=\"fa fa-heart-o\" />"))*@
+          <nav class="navbar navbar-expand-lg">
+               <div class="container">
+                    @{ Html.RenderAction("TopNavBar", "Home");}
+               </div>
+          </nav>
+          @RenderPage("~/Views/Shared/SearchBtn.cshtml")
+     </header>
+     <div class="container-fluid">
+          @*<btn>@Html.ActionLink("Detail","Detail","Book",new { id = 1},null)</btn>*@
+          @RenderBody()
+          <hr />
+     </div>
+
+     @RenderPage("~/Views/Shared/Footer.cshtml")
+     @RenderSection("jsFooter", required: false)
+     <script src="~/Assets/User/js/controller/userController.js"></script>
+</body>
+</html>

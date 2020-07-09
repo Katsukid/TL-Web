@@ -1,0 +1,9 @@
+﻿@using MyWebSite.Models;
+@model List<Category>
+
+  
+    @foreach (var item in Model)
+    {
+        <li><a href="#">@item.name</a></li>
+    }
+   

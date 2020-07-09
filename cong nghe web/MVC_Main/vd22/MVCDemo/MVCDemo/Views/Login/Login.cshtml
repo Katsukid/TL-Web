@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using MVCDemo.Models;
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm("LoginAction", "Login"))
+{
+    <div>@Html.Label("Login name")</div>
+    <div>@Html.TextBox("name")</div>
+    <div>@Html.Label("Password")</div>
+    <div>@Html.TextBox("password")</div>
+    <input type="submit" value="Login">
+}
+
+@Html.ActionLink("Thêm sinh viên", "Add", "Student");
+
+@Html.ActionLink("Sửa sinh viên", "Edit", "Student", new { ID = 5 }, null);
+
+@Html.ActionLink("Sửa sinh viên", "Edit", "Student", new { ID = 6 }, new { @style = "color:red;" });
+
+@Html.ActionLink("Sửa sinh viên", "Delete", null, new { onclick = " return confirm('Xóa dữ liệu?' );" });
+
+@Html.Partial("FirstPartialView");
